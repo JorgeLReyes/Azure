@@ -1,4 +1,5 @@
 # 1. Una suscripción seleccionada y un grupo de recursos nuevo
+Connect-AzAccount
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 # 7. Una dirección IP pública.
@@ -15,7 +16,7 @@ $subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $subnetNa
 $ipConfigName = "miIPConfig"
 $ipConfig = New-AzNetworkInterfaceIpConfig -Name $ipConfigName -Subnet $subnet -PrivateIpAddress $privateIpAddress
 $nic = New-AzNetworkInterface -ResourceGroupName $resourceGroupName -Location $location -Name "miNIC" -IpConfiguration $ipConfig
-Get-AzNetworkInterface - Name "miNIC" -ResourceGroupName $resourceGroupName
+Get-AzNetworkInterface -Name "miNIC" -ResourceGroupName $resourceGroupName
 
 # 8. Una regla de acceso que te permita acceder por RDP una vez que finalice la creación del equipo.
 $nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPAccess" -Protocol Tcp -Direction Inbound -Priority 1000 -SourceAddressPrefix "*" -SourcePortRange "*" -DestinationAddressPrefix "*" -DestinationPortRange 3389 -Access Allow
