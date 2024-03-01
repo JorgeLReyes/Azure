@@ -1,5 +1,4 @@
 # 1. Una suscripción seleccionada y un grupo de recursos nuevo
-Connect-AzAccount
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 # 7. Una dirección IP pública.
