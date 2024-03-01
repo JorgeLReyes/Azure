@@ -1,5 +1,8 @@
 # Azure
-
+- Logearse
+```
+Connect-AzAccount
+```
 - Copiar, pegar y modificar las variables de acuerdo a las necesidades
 ```
 $resourceGroupName = "azf-vms-powershell-as-1"
